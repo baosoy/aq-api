@@ -10,7 +10,7 @@ const pg = postgres(process.env.POSTGRES_CONNECTION_STRING)
 
 const app = new Hono()
 app.use('*', logger())
-app.use('*', cors())
+app.use('*', cors('*'))
 app.use('*', basicAuth({
     username: process.env.BASIC_USERNAME,
     password: process.env.BASIC_PASSWORD
@@ -45,4 +45,6 @@ app.post('/readings', async (c) => {
 })
 
 export default app
-serve({ fetch: app.fetch, port: process.env.PORT || 3000 })
+serve({ fetch: app.fetch, port: process.env.PORT }, (info) => {
+    console.log(`Listening on http://${info.address}:${info.port}`)
+})
