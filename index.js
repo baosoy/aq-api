@@ -18,7 +18,7 @@ app.use('*', basicAuth({
 
 app.get('/health', async (c) => {
 
-    c.status(200).json({ ok: true})
+    return c.status(200).json({ ok: true})
 
 })
 
