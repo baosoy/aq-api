@@ -16,6 +16,12 @@ app.use('*', basicAuth({
     password: process.env.BASIC_PASSWORD
 }))
 
+app.get('/health', async (c) => {
+
+    c.status(200).json({ ok: true})
+
+})
+
 app.post('/readings', async (c) => {
 
     const { readings, ...rest } = c.req.json()
