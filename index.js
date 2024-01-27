@@ -32,7 +32,6 @@ app.post('/readings', async (c) => {
         uid: rest.uid,
         nickname: rest.nickname,
         model: rest.model,
-        voltage: readings.voltage,
         temperature: readings.temperature,
         humidity: readings.humidity,
         pressure: readings.pressure,
