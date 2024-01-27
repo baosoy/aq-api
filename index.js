@@ -25,7 +25,7 @@ app.get('/health', async (c) => {
 
 app.post('/readings', async (c) => {
 
-    const { readings, ...rest } = c.req.json()
+    const { readings, ...rest } = await c.req.json()
     console.log(readings, rest)
     const [data] = await pg`insert into aq_readings ${pg({
         timestamp: rest.timestamp,
