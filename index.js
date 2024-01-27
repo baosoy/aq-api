@@ -18,7 +18,8 @@ app.use('*', basicAuth({
 
 app.get('/health', async (c) => {
 
-    return c.status(200).json({ ok: true})
+    
+    return c.json({ ok: true}, 200)
 
 })
 
@@ -41,7 +42,7 @@ app.post('/readings', async (c) => {
     })} returning *`;
 
 
-    return c.status(200).json(data)
+    return c.json(data, 201)
 })
 
 export default app
