@@ -1,0 +1,12 @@
+{
+  "name": "aq-api",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "^1.5.0",
+    "hono": "^3.12.7",
+    "postgres": "^3.4.3"
+  }
+}
