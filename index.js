@@ -42,10 +42,9 @@ app
     return c.json(data, 201);
   });
 
-app.get("/readings/sequencer", (c) => {
-  await[
-    data
-  ] = pg`select * from aq_readings where nickname = 'aq-game' ORDER BY timestamp DESC LIMIT 1`;
+app.get("/readings/sequencer", async (c) => {
+  const [data] =
+    await pg`select * from aq_readings where nickname = 'aq-game' ORDER BY timestamp DESC LIMIT 1`;
 
   return c.json(data, 200);
 });
